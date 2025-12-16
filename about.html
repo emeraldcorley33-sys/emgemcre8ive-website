@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Emerald | emgemcre8ive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a href="index.html" class="logo-mark">
+        <img src="../emgemcre8ive-logos-svg/logo.svg" alt="emgemcre8ive logo" class="logo-img" />
+        <span>emgemcre8ive</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-nav">
+        <a href="index.html#home">Home</a>
+        <a href="freebies.html">Freebies</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="index.html#start" class="pill">Start a Project</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <h1>About Emerald</h1>
+        <p class="lede">Designer, celebration enthusiast, and creator of joyful, intentional designs.</p>
+      </section>
+
+      <section class="about-content">
+        <div class="about-grid-full">
+          <div class="about-image">
+            <div class="photo-frame">
+              <img src="../../Snapchat-968965457.jpg" alt="Emerald" class="about-photo" />
+            </div>
+          </div>
+          <div class="about-text">
+            <h2>Hi, I'm Emerald.</h2>
+            <p>I'm a designer who believes that every celebration, brand, and keepsake deserves to feel warm, polished, and intentional. Whether it's a birthday party, a brand refresh, or a personalized gift, I create designs that make moments memorable.</p>
+            
+            <h3>My approach</h3>
+            <ul>
+              <li><strong>Clear communication:</strong> I listen to your vision and ask the right questions to bring it to life.</li>
+              <li><strong>Fast turnarounds:</strong> Printables in 1-2 days, custom projects on a timeline that works for you.</li>
+              <li><strong>Production-ready files:</strong> Everything ships print-ready so you can launch with confidence.</li>
+              <li><strong>Strategy-led branding:</strong> Built for founders, marketers, and emerging brands who want their identity to stand out.</li>
+            </ul>
+
+            <h3>What I create</h3>
+            <p>Branding suites with logos, color systems, and guidelines. Party packages for birthdays, baby showers, and holidays. Printables and keepsakes like wall décor, stickers, t‑shirts, personalized gifts, and memory pieces. Plus custom designs for anything unique and one‑of‑a‑kind.</p>
+
+            <h3>Why I do this</h3>
+            <p>I love helping people celebrate, launch businesses, and create keepsakes they'll treasure. Design isn't just about how something looks—it's about how it makes you feel. Every project I take on is a chance to add a little more joy and intention to someone's life.</p>
+
+            <div class="cta-row" style="margin-top: 24px;">
+              <a class="cta primary" href="index.html#start">Let's create together</a>
+              <a class="cta ghost" href="index.html#shop">See what I offer</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="logo-mark">
+          <img src="../emgemcre8ive-logos-svg/logo-with-text.svg" alt="emgemcre8ive logo" class="logo-img" />
+          <span>emgemcre8ive</span>
+        </div>
+        <div class="footer-meta">Branding, party packages, printables, keepsakes, and custom designs.</div>
+        <div class="footer-links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#faqs">FAQs</a>
+          <a href="index.html#shipping">Shipping &amp; Returns</a>
+          <a href="index.html#privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    (function() {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.top-nav');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    })();
+  </script>
+
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script>
+    // Scroll to top functionality
+    const scrollBtn = document.getElementById('scroll-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+    
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
