@@ -18,6 +18,28 @@
   box-sizing: border-box;
 }
 
+/* Image Optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth fade-in for lazy-loaded images */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Prevent layout shift during image load */
+picture {
+  display: contents;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
