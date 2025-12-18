@@ -172,8 +172,16 @@ main {
 
 .top-nav .pill {
   border: 1px solid var(--accent);
-  color: var(--ink);
-  background: rgba(34, 176, 125, 0.08);
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 8px 18px rgba(34, 176, 125, 0.24);
+  font-weight: 700;
+}
+
+.top-nav .pill:hover {
+  color: #fff;
+  background: #1f9d73;
+  border-color: #1f9d73;
 }
 
 .hero {
