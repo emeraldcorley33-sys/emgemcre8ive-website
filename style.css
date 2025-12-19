@@ -12,7 +12,11 @@
   --shadow: 0 16px 40px rgba(0, 122, 77, 0.08);
   --shadow-strong: 0 20px 60px rgba(0, 122, 77, 0.15);
   --shadow-lift: 0 8px 32px rgba(0, 122, 77, 0.18);
-  --font-sans: "Space Grotesk", "Manrope", "Inter", system-ui, -apple-system, sans-serif;
+  /* Typography */
+  --font-heading: "Raleway", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-cta: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-script: "Dancing Script", "Segoe Script", "Brush Script MT", cursive;
 }
 
 * {
@@ -43,7 +47,7 @@ picture {
 
 body {
   margin: 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   background: linear-gradient(180deg, #c1ff72 0%, #e8ffb8 40%, #ffffff 70%);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
@@ -246,6 +250,7 @@ main {
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: var(--ink);
+  font-family: var(--font-heading);
   text-transform: uppercase;
 }
 
@@ -259,9 +264,8 @@ main {
   font-size: 16px;
   line-height: 1.5;
   color: var(--muted);
-  margin: 0 0 24px;
+  margin: 120px 0 24px;
   font-weight: 500;
-  margin-top: auto;
 }
 
 @media (max-width: 968px) {
@@ -273,6 +277,10 @@ main {
   .hero {
     padding: 12px 0 40px;
   }
+
+  .hero-subtitle {
+    margin-top: 120px;
+  }
 }
 
 
@@ -282,6 +290,7 @@ main {
   letter-spacing: 0.15em;
   font-size: 14px;
   color: var(--accent);
+  font-family: var(--font-heading);
   font-weight: 800;
   position: relative;
   display: inline-block;
@@ -300,24 +309,33 @@ main {
   border-radius: 50%;
 }
 
+/* Global heading font fallback */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Utility: hand-lettered script style */
+.hand-lettered {
+  font-family: var(--font-script);
+  letter-spacing: 0.02em;
+}
+
 /* Desktop: lock subtitle to the bottom of the hero text area */
 @media (min-width: 969px) {
   .hero-text {
     position: relative;
-    padding-bottom: 88px; /* reserve space for absolute subtitle */
+    padding-bottom: 0;
   }
   .hero-subtitle {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 24px;
-    margin-top: 0;
+    position: static;
+    margin-top: 120px;
   }
 }
 
 .lede {
   font-size: 17px;
   line-height: 1.6;
+  font-family: var(--font-body);
 }
 
 .cta-row {
@@ -335,18 +353,19 @@ main {
   padding: 12px 16px;
   border-radius: 12px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
+  font-family: var(--font-cta);
   border: 1px solid transparent;
   transition: all 0.2s ease;
   color: var(--ink);
 }
 
 .cta.primary {
-  background: linear-gradient(135deg, #00bf63, #22b07d);
+  background: linear-gradient(135deg, var(--accent), #22b07d);
   color: white;
   padding: 16px 36px;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 600;
   box-shadow: 0 8px 24px rgba(0, 191, 99, 0.3);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
