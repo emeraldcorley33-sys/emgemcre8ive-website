@@ -186,9 +186,9 @@ main {
 
 .hero {
   position: relative;
-  padding: 36px 32px 80px 32px;
+  padding: 12px 32px 56px 32px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   min-height: 700px;
   overflow: hidden;
   width: 100vw;
@@ -221,6 +221,7 @@ main {
   z-index: 2;
   max-width: 600px;
   height: 100%;
+  display: flex;
 }
 
 .hero-text {
@@ -228,6 +229,7 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 8px 0 16px;
 }
 
 .hero-title {
@@ -268,7 +270,7 @@ main {
   }
   
   .hero {
-    padding: 36px 0 56px;
+    padding: 12px 0 40px;
   }
 }
 
