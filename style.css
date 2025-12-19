@@ -186,7 +186,7 @@ main {
 
 .hero {
   position: relative;
-  padding: 60px 32px 80px 32px;
+  padding: 36px 32px 80px 32px;
   display: flex;
   align-items: center;
   min-height: 700px;
@@ -220,10 +220,14 @@ main {
   position: relative;
   z-index: 2;
   max-width: 600px;
+  height: 100%;
 }
 
 .hero-text {
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .hero-title {
@@ -254,6 +258,7 @@ main {
   color: var(--muted);
   margin: 0 0 24px;
   font-weight: 500;
+  margin-top: auto;
 }
 
 @media (max-width: 968px) {
@@ -263,7 +268,7 @@ main {
   }
   
   .hero {
-    padding: 60px 0 80px;
+    padding: 36px 0 56px;
   }
 }
 
