@@ -1,16 +1,17 @@
 :root {
   --bg: #f7f4ef;
-  --panel: #ffffff;
-  --ink: #142026;
+  --panel: #ffffff; /* neutral base */
+  --ink: #1a1a1a;   /* text dark */
   --muted: #5f6b73;
-  --accent: #22b07d;
-  --accent-2: #ffb347;
+  --accent: #007a4d; /* emerald bold */
+  --accent-2: #3cff33; /* lime pop */
+  --soft: #dfffe2; /* mint mist */
   --card: #ffffff;
   --border: #e1e6ea;
   --radius: 16px;
-  --shadow: 0 16px 40px rgba(12, 44, 35, 0.08);
-  --shadow-strong: 0 20px 60px rgba(12, 44, 35, 0.15);
-  --shadow-lift: 0 8px 32px rgba(34, 176, 125, 0.18);
+  --shadow: 0 16px 40px rgba(0, 122, 77, 0.08);
+  --shadow-strong: 0 20px 60px rgba(0, 122, 77, 0.15);
+  --shadow-lift: 0 8px 32px rgba(0, 122, 77, 0.18);
   --font-sans: "Space Grotesk", "Manrope", "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -160,12 +161,12 @@ main {
 
 .top-nav a:hover {
   color: var(--accent);
-  background: rgba(34, 176, 125, 0.12);
+  background: rgba(0, 122, 77, 0.12);
 }
 
 .top-nav a:active {
   color: var(--accent);
-  background: rgba(34, 176, 125, 0.3);
+  background: rgba(0, 122, 77, 0.3);
   transform: scale(0.92);
   opacity: 0.8;
 }
@@ -174,14 +175,14 @@ main {
   border: 1px solid var(--accent);
   color: #fff;
   background: var(--accent);
-  box-shadow: 0 8px 18px rgba(34, 176, 125, 0.24);
+  box-shadow: 0 8px 18px rgba(0, 122, 77, 0.24);
   font-weight: 700;
 }
 
 .top-nav .pill:hover {
   color: #fff;
-  background: #1f9d73;
-  border-color: #1f9d73;
+  background: #006a42;
+  border-color: #006a42;
 }
 
 .hero {
@@ -249,7 +250,7 @@ main {
 }
 
 .hero-title-line.highlight {
-  color: #00bf63;
+  color: var(--accent);
   position: relative;
   display: inline-block;
 }
@@ -295,8 +296,23 @@ main {
   transform: translateY(-50%);
   width: 10px;
   height: 10px;
-  background: linear-gradient(135deg, #00bf63, #c1ff72);
+  background: linear-gradient(135deg, var(--accent), var(--soft));
   border-radius: 50%;
+}
+
+/* Desktop: lock subtitle to the bottom of the hero text area */
+@media (min-width: 969px) {
+  .hero-text {
+    position: relative;
+    padding-bottom: 88px; /* reserve space for absolute subtitle */
+  }
+  .hero-subtitle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    margin-top: 0;
+  }
 }
 
 .lede {
