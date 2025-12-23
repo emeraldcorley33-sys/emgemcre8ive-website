@@ -22,6 +22,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Simple lightbox overlay for mockup galleries */
+    .lightbox-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.78); display: none; align-items: center; justify-content: center; z-index: 9999; padding: 24px; }
+    .lightbox-overlay.is-open { display: flex; }
+    .lightbox-frame { position: relative; max-width: 90vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
+    .lightbox-img { max-width: 100%; max-height: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+    .lightbox-btn { position: absolute; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 999px; width: 44px; height: 44px; display: grid; place-items: center; cursor: pointer; transition: background 0.2s ease; }
+    .lightbox-btn:hover { background: rgba(0,0,0,0.8); }
+    .lightbox-close { top: -12px; right: -12px; font-size: 22px; line-height: 1; }
+    .lightbox-prev { left: -60px; }
+    .lightbox-next { right: -60px; }
+    @media (max-width: 768px) { .lightbox-prev { left: 8px; } .lightbox-next { right: 8px; } .lightbox-frame { max-width: 100vw; max-height: 80vh; } }
+  </style>
 </head>
 <body>
   <div class="site-shell">
@@ -243,6 +256,15 @@
         </div>
       </div>
     </footer>
+    <!-- Lightbox for mockup images -->
+    <div class="lightbox-overlay" id="lightbox" aria-modal="true" role="dialog">
+      <div class="lightbox-frame">
+        <button class="lightbox-btn lightbox-prev" aria-label="Previous image" id="lightbox-prev">‹</button>
+        <img class="lightbox-img" id="lightbox-img" alt="Expanded mockup" />
+        <button class="lightbox-btn lightbox-next" aria-label="Next image" id="lightbox-next">›</button>
+        <button class="lightbox-btn lightbox-close" aria-label="Close" id="lightbox-close">×</button>
+      </div>
+    </div>
     <script>
       (function() {
         const toggle = document.querySelector('.nav-toggle');
@@ -280,6 +302,41 @@
         behavior: 'smooth'
       });
     });
+  </script>
+  <script>
+    // Simple lightbox for mockup grids
+    (function() {
+      const overlay = document.getElementById('lightbox');
+      const imgEl = document.getElementById('lightbox-img');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+      const closeBtn = document.getElementById('lightbox-close');
+      const thumbs = Array.from(document.querySelectorAll('.mockups-grid img'));
+      let index = 0;
+      if (!overlay || !imgEl || thumbs.length === 0) return;
+
+      const open = (i) => {
+        index = i;
+        imgEl.src = thumbs[index].src;
+        imgEl.alt = thumbs[index].alt || 'Mockup';
+        overlay.classList.add('is-open');
+      };
+      const close = () => overlay.classList.remove('is-open');
+      const next = () => open((index + 1) % thumbs.length);
+      const prev = () => open((index - 1 + thumbs.length) % thumbs.length);
+
+      thumbs.forEach((thumb, i) => thumb.addEventListener('click', () => open(i)));
+      closeBtn?.addEventListener('click', close);
+      nextBtn?.addEventListener('click', next);
+      prevBtn?.addEventListener('click', prev);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('is-open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+    })();
   </script>
 </body>
 </html>
