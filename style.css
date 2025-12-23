@@ -346,6 +346,11 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
 }
 
+.hero .cta-row {
+  margin-top: auto;
+  padding-top: 48px;
+}
+
 .cta {
   display: inline-flex;
   align-items: center;

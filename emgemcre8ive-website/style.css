@@ -312,6 +312,11 @@ main {
   flex-wrap: wrap;
 }
 
+.hero .cta-row {
+  margin-top: auto;
+  padding-top: 48px;
+}
+
 .cta {
   display: inline-flex;
   align-items: center;
