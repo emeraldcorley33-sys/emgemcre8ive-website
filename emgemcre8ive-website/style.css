@@ -315,6 +315,19 @@ main {
 .hero .cta-row {
   margin-top: auto;
   padding-top: 48px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+@media (max-width: 968px) {
+  .hero .cta-row {
+    justify-content: center;
+    width: auto;
+  }
+}
+
+.hero-text {
+  align-items: stretch;
 }
 
 .cta {

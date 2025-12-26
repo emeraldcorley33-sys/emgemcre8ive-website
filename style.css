@@ -349,6 +349,19 @@ h1, h2, h3, h4, h5, h6 {
 .hero .cta-row {
   margin-top: auto;
   padding-top: 48px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+@media (max-width: 968px) {
+  .hero .cta-row {
+    justify-content: center;
+    width: auto;
+  }
+}
+
+.hero-text {
+  align-items: stretch;
 }
 
 .cta {
