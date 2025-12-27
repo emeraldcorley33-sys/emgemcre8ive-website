@@ -1,3 +1,8 @@
+/* Lower hero subtitle and CTA buttons */
+/* Removed duplicate/conflicting .hero-subtitle rules at the top of the file */
+.hero {
+  position: relative;
+}
 :root {
   --bg: #f7f4ef;
   --panel: #ffffff;
@@ -220,7 +225,7 @@ main {
   position: relative;
   z-index: 2;
   max-width: 600px;
-  height: 100%;
+  /* height: 100%; removed to prevent stretching */
   display: flex;
 }
 
@@ -228,7 +233,7 @@ main {
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /* height: 100%; removed to prevent stretching */
   padding: 8px 0 16px;
 }
 
@@ -255,12 +260,17 @@ main {
 }
 
 .hero-subtitle {
-  font-size: 16px;
+  font-size: 1.15rem;
   line-height: 1.5;
-  color: var(--muted);
-  margin: 8px 0 24px;
+  color: var(--ink); /* darkened for readability */
   font-weight: 500;
-  margin-top: auto;
+  margin-top: 32px; /* moves subtitle down from the top */
+  margin-bottom: 28px;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: normal;
 }
 
 @media (max-width: 968px) {
@@ -304,26 +314,14 @@ main {
   line-height: 1.6;
 }
 
-.cta-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 18px 0 8px;
-  flex-wrap: wrap;
-}
-
 .hero .cta-row {
-  margin-top: auto;
-  padding-top: 48px;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-@media (max-width: 968px) {
-  .hero .cta-row {
-    justify-content: center;
-    width: auto;
-  }
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px; /* moved CTA buttons to the very bottom of the banner */
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-text {
@@ -1178,6 +1176,8 @@ main {
     width: 100%;
     height: 100%;
     justify-content: space-between;
+    position: relative;
+    padding-bottom: 240px;
   }
 
   .hero-text {
@@ -1191,18 +1191,17 @@ main {
     color: #0d1f26;
   }
 
-  .hero-subtitle {
-    text-shadow: 0 2px 8px rgba(255,255,255,1), 0 1px 3px rgba(255,255,255,0.8);
-    font-size: 16px;
-    font-weight: 700;
-    color: #3a4a52;
-    margin-bottom: 0;
-  }
+  /* Removed duplicate/conflicting .hero-subtitle rules for clarity */
 
   .cta-row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
     justify-content: center;
-    margin-top: auto;
-    padding-top: 180px;
+    margin-top: 0;
+    padding: 24px 0 0 0;
+    z-index: 2;
   }
 }
 
