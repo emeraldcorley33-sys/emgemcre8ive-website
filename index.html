@@ -27,60 +27,64 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "emgemcre8ive",
-    "description": "Custom branding, party packages, and printables design studio",
-    "url": "https://www.emgemcre8ive.com",
-    "email": "emgemcre8ive@yahoo.com",
-    "telephone": "619-922-2654",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "22255 N Bishop Dr",
-      "addressLocality": "Maricopa",
-      "addressRegion": "AZ",
-      "postalCode": "85138",
-      "addressCountry": "US"
-    },
-    "image": "https://www.emgemcre8ive.com/emgemcre8ive-logos-png/logo-with-text.png",
-    "areaServed": ["Phoenix", "Maricopa", "Arizona"],
-    "knowsAbout": ["Graphic Design", "Branding", "Printables", "Party Planning", "Keepsakes"]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "3",
-    "bestRating": "5",
-    "worstRating": "1"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "author": {
-      "@type": "Person",
-      "name": "Client Name"
-    },
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "5",
-      "bestRating": "5"
-    },
-    "itemReviewed": {
-      "@type": "LocalBusiness",
-      "name": "EmGemCre8ive",
-      "url": "https://emgemcre8ive.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "22255 N Bishop Dr",
-        "addressLocality": "Maricopa",
-        "addressRegion": "AZ",
-        "postalCode": "85138",
-        "addressCountry": "US"
+    "@graph": [
+      {
+        "@type": "Brand",
+        "@id": "https://emgemcre8ive.com/#brand",
+        "name": "EmGemCre8ive",
+        "alternateName": "EmGemCre8ive",
+        "url": "https://emgemcre8ive.com",
+        "logo": "https://emgemcre8ive.com/logo.png",
+        "sameAs": [
+          "https://www.facebook.com/emgemcre8ive",
+          "https://www.instagram.com/emgemcre8ive",
+          "https://www.pinterest.com/emgemcre8ive",
+          "https://www.tiktok.com/@emgemcre8ive",
+          "https://www.youtube.com/@emgemcre8ive",
+          "https://www.yelp.com/biz/emgemcre8ive"
+        ]
       },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://emgemcre8ive.com/#localbusiness",
+        "name": "EmGemCre8ive",
+        "image": "https://emgemcre8ive.com/brand-image.jpg",
+        "url": "https://emgemcre8ive.com",
+        "telephone": "",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Maricopa",
+          "addressRegion": "AZ",
+          "addressCountry": "US"
+        },
+        "priceRange": "$$",
+        "servesCuisine": "N/A",
+        "description": "Creative design studio specializing in branding, printables, keepsakes, and custom visual storytelling.",
+        "founder": {
+          "@type": "Person",
+          "name": "Emerald Corley"
+        },
+        "brand": {
+          "@id": "https://emgemcre8ive.com/#brand"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://emgemcre8ive.com/#website",
+        "url": "https://emgemcre8ive.com",
+        "name": "EmGemCre8ive",
+        "publisher": {
+          "@id": "https://emgemcre8ive.com/#brand"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://emgemcre8ive.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
       "telephone": "619-922-2654"
     }
   }
