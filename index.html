@@ -135,17 +135,29 @@
   }
   </script>
 <style>
-  /* Mobile CTA stacking fix: ensures all .cta-row elements stack vertically and stay in their section on mobile */
+  /* Improved mobile CTA stacking fix: only stack .cta-row children vertically, do not affect document flow */
   @media (max-width: 768px) {
     .cta-row {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: stretch !important;
-      gap: 10px !important;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+      width: 100%;
+      margin: 0;
     }
-    .cta-row .cta {
-      width: 100% !important;
-      margin: 0 !important;
+    .cta-row .cta,
+    .cta-row button.cta {
+      width: 100%;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .about-highlight .cta-row,
+    .contact-card .cta-row,
+    .testimonials .cta-row,
+    .freebies .cta-row,
+    .featured-cta {
+      justify-content: center;
+      align-items: stretch;
     }
   }
 </style>
