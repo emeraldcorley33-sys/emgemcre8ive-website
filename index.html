@@ -135,9 +135,12 @@
   }
   </script>
 <style>
-  /* Improved mobile CTA stacking fix: only stack .cta-row children vertically, do not affect document flow */
+  /* Targeted mobile CTA stacking fix: only stack CTAs in specific sections */
   @media (max-width: 768px) {
-    .cta-row {
+    .testimonials .cta-row,
+    .contact-card .cta-row,
+    .about-highlight .cta-row,
+    .freebies .cta-row {
       display: flex;
       flex-direction: column;
       align-items: stretch;
@@ -145,19 +148,13 @@
       width: 100%;
       margin: 0;
     }
-    .cta-row .cta,
-    .cta-row button.cta {
+    .testimonials .cta-row .cta,
+    .contact-card .cta-row .cta,
+    .about-highlight .cta-row .cta,
+    .freebies .cta-row .cta {
       width: 100%;
       margin: 0;
       box-sizing: border-box;
-    }
-    .about-highlight .cta-row,
-    .contact-card .cta-row,
-    .testimonials .cta-row,
-    .freebies .cta-row,
-    .featured-cta {
-      justify-content: center;
-      align-items: stretch;
     }
   }
 </style>
@@ -985,3 +982,4 @@
   </script>
 </body>
 </html>
+
