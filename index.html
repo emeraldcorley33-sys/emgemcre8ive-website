@@ -864,7 +864,35 @@
           <a class="cta primary" href="#contact">Book a Consultation</a>
         </div>
       </section>
-
+        <div class="cta-row testimonials-cta">
+          <a class="cta primary" href="https://g.page/r/Ca6FnUoqsgsBEAE/review" target="_blank" rel="noopener noreferrer">Leave a Google Review</a>
+          <a class="cta ghost" href="https://www.yelp.com/biz/emgemcre8ive-maricopa" target="_blank" rel="noopener noreferrer">Leave a Yelp Review</a>
+        </div>
+        <style>
+          .testimonials-cta {
+            margin-top: 24px;
+            gap: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+          }
+          @media (max-width: 768px) {
+            .testimonials-cta {
+              margin-top: 18px !important;
+              gap: 8px !important;
+              flex-direction: column;
+              align-items: stretch;
+            }
+            .testimonials-cta .cta {
+              width: 100%;
+              margin-bottom: 8px;
+            }
+          }
+        </style>
+      </div>
+    </div>
+  </div>
+</div>
       <section id="contact" class="section contact">
         <div class="contact-card">
           <h2>Get Your Custom Quote</h2>
@@ -1095,4 +1123,5 @@
     });
   </script>
 </body>
+
 </html>
