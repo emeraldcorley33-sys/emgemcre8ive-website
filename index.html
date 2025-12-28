@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+      /* Mobile fix: Only stack .cta-row buttons vertically in their own section, never globally */
+      @media (max-width: 768px) {
+        .cta-row {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+          width: 100%;
+          margin: 0;
+          position: static !important;
+        }
+        .cta-row .cta,
+        .cta-row button.cta {
+          width: 100%;
+          margin: 0;
+          box-sizing: border-box;
+        }
+      }
+    </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/webp" href="/emgemcre8ive-logos-png/logo.webp">
@@ -961,5 +981,3 @@
   </script>
 </body>
 </html>
-
-
