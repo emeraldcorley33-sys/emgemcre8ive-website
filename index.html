@@ -1019,7 +1019,13 @@
     }
 
     /* --- Create Confetti Piece --- */
+
     function createConfettiPiece() {
+      // Create wrapper for fall animation
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("confetti-fall");
+
+      // Create inner piece for wiggle and shape/color
       const piece = document.createElement("div");
 
       // Always-on base confetti
@@ -1028,7 +1034,6 @@
 
       // Seasonal overlays
       let seasonalTypes = [];
-
       if (isValentineSeason()) seasonalTypes.push("heart");
       if (isShamrockSeason()) seasonalTypes.push("shamrock");
       if (isSpringPetalSeason()) seasonalTypes.push("petal");
@@ -1036,27 +1041,22 @@
       if (isSummerSeason()) seasonalTypes.push("sun");
       if (isFallSeason()) seasonalTypes.push("leaf");
       if (isHolidaySeason()) seasonalTypes.push("snowflake");
-
-      // Combine base + seasonal
       const allTypes = [...baseTypes, ...seasonalTypes];
-
-      // Pick a random type
       const type = allTypes[Math.floor(Math.random() * allTypes.length)];
       piece.classList.add("confetti", type);
-
-      // Metallic color
       const color = baseColors[Math.floor(Math.random() * baseColors.length)];
       piece.classList.add(color);
 
       // Random placement + timing
-      piece.style.left = Math.random() * 100 + "vw";
+      wrapper.style.left = Math.random() * 100 + "vw";
+      wrapper.style.animationDelay = Math.random() * 3 + "s";
+      wrapper.style.animationDuration = (5 + Math.random() * 5) + "s";
       piece.style.animationDelay = Math.random() * 3 + "s";
-      piece.style.animationDuration = (5 + Math.random() * 5) + "s";
+      piece.style.animationDuration = (2 + Math.random() * 2) + "s";
 
-      confettiContainer.appendChild(piece);
-
-      // Remove after falling
-      setTimeout(() => piece.remove(), 10000);
+      wrapper.appendChild(piece);
+      confettiContainer.appendChild(wrapper);
+      setTimeout(() => wrapper.remove(), 10000);
     }
 
     /* --- Continuous Confetti --- */
