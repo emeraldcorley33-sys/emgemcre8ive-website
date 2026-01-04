@@ -10,12 +10,19 @@
   z-index: 9999;
 }
 
-/* Base confetti piece */
-.confetti {
+/* Confetti fall wrapper */
+.confetti-fall {
   position: absolute;
   top: -10px;
+  will-change: transform;
+  animation: fall linear infinite;
+}
+
+/* Base confetti piece */
+.confetti {
   opacity: 0.9;
-  animation: fall linear infinite, wiggle ease-in-out infinite;
+  will-change: transform;
+  animation: wiggle ease-in-out infinite;
 }
 
 /* Metallic colors */
