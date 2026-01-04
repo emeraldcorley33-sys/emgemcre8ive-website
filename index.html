@@ -44,6 +44,7 @@
   <link rel="preload" as="image" href="/emgemcre8ive-hero-banner.webp" imagesrcset="/mobile-emgemcre8ive-hero-banner%20(1800%20x%202400%20px).webp 1800w, /emgemcre8ive-hero-banner.webp 6912w" imagesizes="(max-width: 768px) 100vw, 100vw">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="confetti.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -947,6 +948,7 @@
     })();
   </script>
 
+  <div id="confetti-container"></div>
   <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
@@ -978,6 +980,87 @@
         img.classList.add('loaded');
       });
     });
+  </script>
+
+  <script>
+    const confettiContainer = document.getElementById("confetti-container");
+
+    /* --- Seasonal Date Checks --- */
+    function isValentineSeason() {
+      const d = new Date();
+      return d.getMonth() === 1 && d.getDate() >= 1 && d.getDate() <= 14;
+    }
+
+    function isShamrockSeason() {
+      const d = new Date();
+      return d.getMonth() === 2 && d.getDate() >= 1 && d.getDate() <= 17;
+    }
+
+    function isSpringPetalSeason() {
+      return new Date().getMonth() === 3; // April
+    }
+
+    function isMayCelebrationSeason() {
+      return new Date().getMonth() === 4; // May
+    }
+
+    function isSummerSeason() {
+      const m = new Date().getMonth();
+      return m >= 5 && m <= 7; // June–Aug
+    }
+
+    function isFallSeason() {
+      const m = new Date().getMonth();
+      return m >= 8 && m <= 10; // Sept–Nov
+    }
+
+    function isHolidaySeason() {
+      return new Date().getMonth() === 11; // December
+    }
+
+    /* --- Create Confetti Piece --- */
+    function createConfettiPiece() {
+      const piece = document.createElement("div");
+
+      // Always-on base confetti
+      const baseTypes = ["streamer", "dot", "sparkle"];
+      const baseColors = ["gold", "champagne", "rosegold"];
+
+      // Seasonal overlays
+      let seasonalTypes = [];
+
+      if (isValentineSeason()) seasonalTypes.push("heart");
+      if (isShamrockSeason()) seasonalTypes.push("shamrock");
+      if (isSpringPetalSeason()) seasonalTypes.push("petal");
+      if (isMayCelebrationSeason()) seasonalTypes.push("balloon");
+      if (isSummerSeason()) seasonalTypes.push("sun");
+      if (isFallSeason()) seasonalTypes.push("leaf");
+      if (isHolidaySeason()) seasonalTypes.push("snowflake");
+
+      // Combine base + seasonal
+      const allTypes = [...baseTypes, ...seasonalTypes];
+
+      // Pick a random type
+      const type = allTypes[Math.floor(Math.random() * allTypes.length)];
+      piece.classList.add("confetti", type);
+
+      // Metallic color
+      const color = baseColors[Math.floor(Math.random() * baseColors.length)];
+      piece.classList.add(color);
+
+      // Random placement + timing
+      piece.style.left = Math.random() * 100 + "vw";
+      piece.style.animationDelay = Math.random() * 3 + "s";
+      piece.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+      confettiContainer.appendChild(piece);
+
+      // Remove after falling
+      setTimeout(() => piece.remove(), 10000);
+    }
+
+    /* --- Continuous Confetti --- */
+    setInterval(createConfettiPiece, 200);
   </script>
 </body>
 </html>
