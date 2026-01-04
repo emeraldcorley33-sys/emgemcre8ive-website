@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="style.css" as="style">
-  <link rel="preload" as="image" href="/emgemcre8ive-hero-banner.webp" imagesrcset="/mobile-emgemcre8ive-hero-banner%20(1800%20x%202400%20px).webp 1800w, /emgemcre8ive-hero-banner.webp 6912w" imagesizes="(max-width: 768px) 100vw, 100vw">
+  <!-- Preload removed: not used immediately above the fold -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="confetti.css">
@@ -211,7 +211,7 @@
       <section id="about-intro" class="section about-intro">
         <div class="about-intro-content">
           <div class="about-intro-photo">
-            <img src="/20180516_131941.jpg" alt="Emerald - graphic designer and founder of emgemcre8ive" class="about-intro-img" style="transform: rotate(-90deg);" loading="eager" fetchpriority="high" decoding="async" />
+            <img src="/20180516_131941.jpg" alt="Emerald - graphic designer and founder of emgemcre8ive" class="about-intro-img" style="transform: rotate(-90deg);" fetchpriority="high" decoding="async" />
           </div>
           <h2>Hi, I'm Emerald.</h2>
           <p>Designer, celebration enthusiast, and your go-to for thoughtful details. I create <a href="brand-identity.html" style="color: var(--accent); text-decoration: underline;">custom branding</a>, <a href="party-packages.html" style="color: var(--accent); text-decoration: underline;">party packages</a>, and <a href="brand-keepsakes.html" style="color: var(--accent); text-decoration: underline;">personalized keepsakes</a> that feel warm, polished, and intentional.</p>
@@ -756,7 +756,8 @@
           <h2>Get Your Custom Quote</h2>
           <p class="lede">Share your vision and I'll respond within one business day with ideas, pricing, timeline, and next steps. No obligation—just a friendly conversation about making your celebration unforgettable.</p>
           
-          <form class="contact-form" action="mailto:emgemcre8ive@yahoo.com" method="POST" enctype="text/plain">
+          <!-- Updated to use Formspree for secure form handling -->
+          <form class="contact-form" action="https://formspree.io/f/xayrjvbp" method="POST">
             <div class="form-row">
               <div class="form-field">
                 <label for="name">Name *</label>
@@ -797,6 +798,7 @@
           <div class="form-footer">
             <p class="small muted">"I really enjoy the wonderful designs offered! Customer service is wonderful and helpful. Attention to detail is amazing! Highly recommend and will order again!" – Brandy Baran</p>
             <p class="small muted">Or reach out directly: <a href="mailto:emgemcre8ive@yahoo.com">emgemcre8ive@yahoo.com</a></p>
+            <p class="small muted">This site uses a secure contact form powered by <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">Formspree</a>.</p>
           </div>
         </div>
       </section>
