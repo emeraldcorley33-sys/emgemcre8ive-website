@@ -1,0 +1,160 @@
+/* Confetti container */
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* Base confetti piece */
+.confetti {
+  position: absolute;
+  top: -10px;
+  opacity: 0.9;
+  animation: fall linear infinite, wiggle ease-in-out infinite;
+}
+
+/* Metallic colors */
+.gold {
+  background: linear-gradient(45deg, #d4af37, #f7e7a9);
+  color: #f7e7a9;
+}
+
+.champagne {
+  background: linear-gradient(45deg, #f1e3c6, #d9c7a3);
+  color: #f1e3c6;
+}
+
+.rosegold {
+  background: linear-gradient(45deg, #e7b7a0, #f3d1c4);
+  color: #f3d1c4;
+}
+
+/* Streamers */
+.streamer {
+  width: 3px;
+  height: 35px;
+  border-radius: 2px;
+  animation-duration: 6s, 2s;
+}
+
+/* Round dots */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation-duration: 7s, 3s;
+}
+
+/* Sparkles */
+.sparkle {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation-duration: 5s, 1.5s;
+  box-shadow: 0 0 6px currentColor;
+}
+
+/* ❤️ Hearts (Feb 1–14) */
+.heart {
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  position: absolute;
+  transform: rotate(45deg);
+  animation-duration: 7s, 3s;
+}
+.heart:before,
+.heart:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  border-radius: 50%;
+  position: absolute;
+}
+.heart:before { top: -6px; left: 0; }
+.heart:after { left: -6px; top: 0; }
+
+/* 🍀 Shamrocks (Mar 1–17) */
+.shamrock {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  animation-duration: 7s, 3s;
+}
+.shamrock:before,
+.shamrock:after,
+.shamrock div {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: currentColor;
+  border-radius: 50%;
+  position: absolute;
+}
+.shamrock:before { top: -6px; left: 0; }
+.shamrock:after { left: -6px; top: 0; }
+.shamrock div { top: 4px; left: -3px; }
+
+/* 🌸 Petals (April) */
+.petal {
+  width: 10px;
+  height: 16px;
+  border-radius: 10px 10px 0 0;
+  transform: rotate(20deg);
+  animation-duration: 8s, 3s;
+}
+
+/* 🎈 Balloons (May) */
+.balloon {
+  width: 10px;
+  height: 14px;
+  border-radius: 50% 50% 45% 45%;
+  animation-duration: 8s, 3s;
+}
+
+/* 🌞 Suns (June–Aug) */
+.sun {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+  animation-duration: 6s, 2s;
+}
+
+/* 🍂 Leaves (Sept–Nov) */
+.leaf {
+  width: 12px;
+  height: 18px;
+  border-radius: 50% 50% 40% 40%;
+  transform: rotate(25deg);
+  animation-duration: 9s, 3s;
+}
+
+/* ❄️ Snowflakes (Dec) */
+.snowflake {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+  animation-duration: 10s, 4s;
+}
+
+/* Falling animation */
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+/* Wiggle animation */
+@keyframes wiggle {
+  0% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(15px) rotate(20deg); }
+  100% { transform: translateX(-10px) rotate(-20deg); }
+}
