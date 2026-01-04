@@ -1,5 +1,4 @@
 /* emgemcre8ive-website/style.css */
-/* Removed duplicate/conflicting .hero-subtitle rules at the top of the file */
 .hero {
   position: relative;
 }
@@ -1996,3 +1995,4 @@ main {
     object-fit: contain;
     object-position: center center;
   }
+
