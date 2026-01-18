@@ -361,6 +361,14 @@ main {
     margin-top: 0 !important;
     margin-bottom: 32px !important;
   }
+  .hero-backdrop::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.18); /* very subtle light overlay */
+    z-index: 1;
+    pointer-events: none;
+  }
   .hero-backdrop img {
     width: 100vw;
     min-height: 220px;
