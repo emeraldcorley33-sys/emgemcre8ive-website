@@ -286,7 +286,14 @@ main {
   color: var(--ink);
   font-weight: 500;
   margin-top: 32px;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
+
+@media (min-width: 769px) {
+  .hero-subtitle {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+}
   text-align: left;
   max-width: 600px;
   white-space: normal;
@@ -349,6 +356,10 @@ main {
   .hero-title, .hero-text, .hero .cta-row {
     align-items: flex-start !important;
     text-align: left !important;
+  }
+  .hero-title {
+    margin-top: 0 !important;
+    margin-bottom: 32px !important;
   }
   .hero-backdrop img {
     width: 100vw;
