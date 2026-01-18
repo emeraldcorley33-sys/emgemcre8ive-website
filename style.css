@@ -222,13 +222,7 @@ main {
   display: block;
 }
 
-.hero-backdrop::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: none;
-  z-index: 1;
-}
+
 
 @media (min-width: 769px) {
   .hero-backdrop::before {
@@ -375,6 +369,10 @@ main {
     background: rgba(255, 255, 255, 0.18); /* very subtle light overlay */
     z-index: 1;
     pointer-events: none;
+  }
+  .hero-subtitle {
+    margin-top: 56px !important;
+    margin-bottom: 32px !important;
   }
 }
 
