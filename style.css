@@ -1217,9 +1217,7 @@ main {
     object-fit: cover;
     object-position: center;
   }
-  .hero-backdrop::before {
-    background: none !important;
-  }
+  /* Removed background: none !important; to allow overlay to show */
 }
 
 @media (max-width: 768px) {
