@@ -196,10 +196,11 @@ main {
   min-height: 700px;
   overflow: hidden;
   width: 100vw;
-  margin-left: 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
   left: 0;
   right: 0;
-  background: #fff;
+  background: none;
 }
 
 .hero-backdrop {
@@ -207,8 +208,8 @@ main {
   inset: 0;
   z-index: 0;
   width: 100vw;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   margin-left: 0;
   margin-right: 0;
 }
@@ -218,6 +219,7 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 
 .hero-backdrop::before {
@@ -1849,6 +1851,11 @@ main {
     min-height: 520px;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    transform: none;
+  }
+  .hero-backdrop {
+    left: 0;
+    transform: none;
   }
 
   .section {
