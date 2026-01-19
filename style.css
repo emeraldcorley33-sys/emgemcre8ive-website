@@ -228,7 +228,7 @@ main {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.38); /* stronger white overlay for mobile */
+  background: rgba(255, 255, 255, 0.68); /* much lighter overlay for mobile */
   z-index: 1;
   pointer-events: none;
 }
@@ -2087,3 +2087,4 @@ main {
     max-width: 80vw;
   }
 }
+    
