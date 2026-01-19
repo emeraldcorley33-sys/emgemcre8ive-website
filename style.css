@@ -1292,33 +1292,15 @@ main {
 
 /* FAQ Page */
 
+
 .faq-search-section {
   margin: 0 auto 24px auto;
-  max-width: 600px;
-  text-align: center;
-}
-
-#faq-search {
-  width: 100%;
-  padding: 14px 18px;
   border-radius: 12px;
-  border: 1.5px solid var(--border);
-  font-size: 1.08em;
-  background: #fff;
-  box-shadow: 0 2px 8px 0 rgba(34,176,125,0.06);
-  transition: border 0.18s, box-shadow 0.18s;
-  margin-top: 12px;
-  color: var(--ink);
-}
-#faq-search:focus {
-  outline: none;
-  border: 1.5px solid var(--accent);
-  box-shadow: 0 4px 16px 0 rgba(34,176,125,0.13);
 }
 
 .faqs-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 18px;
   margin-bottom: 48px;
   background: none;
@@ -1326,23 +1308,17 @@ main {
 
 @media (min-width: 700px) {
   .faqs-grid {
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 28px;
+    gap: 22px;
   }
 }
 
 .faq-item {
-  padding: 0;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px 0 rgba(34,176,125,0.07);
+  background: none;
   border: none;
-  transition: box-shadow 0.18s, transform 0.18s;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
   position: relative;
-}
-.faq-item:hover, .faq-item:focus-within {
-  box-shadow: 0 4px 24px 0 rgba(34,176,125,0.13);
-  transform: translateY(-2px) scale(1.01);
 }
 
 .faq-item h3 {
@@ -1350,67 +1326,99 @@ main {
   font-size: 1.08em;
   font-weight: 600;
   color: var(--ink);
-  background: linear-gradient(90deg, #f9fafc 60%, #e8ffb8 100%);
-  border-radius: 18px 18px 0 0;
+  background: none;
+  border-radius: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .faq-toggle {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 14px;
-  padding: 18px 24px 14px 24px;
-  background: transparent;
+  padding: 16px 20px;
+  background: linear-gradient(90deg, #f9fafc 60%, #e8ffb8 100%);
   border: none;
   color: var(--ink);
-  font-size: 1em;
+  font-size: 1.08em;
   font-weight: 600;
   cursor: pointer;
   text-align: left;
-  border-radius: 18px 18px 0 0;
-  transition: background 0.18s;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(34,176,125,0.10);
+  transition: background 0.18s, box-shadow 0.18s;
+  margin-bottom: 0;
 }
 .faq-toggle:focus {
   outline: 2px solid var(--accent);
-  background: #e8ffb8;
+  background: linear-gradient(90deg, #e8ffb8 60%, #f9fafc 100%);
+  box-shadow: 0 4px 16px 0 rgba(34,176,125,0.13);
 }
-
 .faq-toggle .chevron {
   font-size: 20px;
   color: var(--accent);
   transition: transform 0.2s ease;
+  margin-left: auto;
 }
-
 .faq-item.open .chevron {
   transform: rotate(90deg);
 }
-
 .faq-body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.25s ease, opacity 0.25s ease;
   opacity: 0;
-  padding: 0 24px;
-  background: #fff;
-  border-radius: 0 0 18px 18px;
+  padding: 0 20px;
+  background: none;
+  border-radius: 0 0 16px 16px;
 }
-
 .faq-item.open .faq-body {
-  padding: 0 24px 18px;
+  padding: 0 20px 16px;
   opacity: 1;
 }
-
 .faq-body p {
   font-size: 1em;
   line-height: 1.7;
   color: var(--muted);
   margin: 0 0 12px;
 }
-
 .faq-body p:last-child {
   margin-bottom: 0;
+}
+/* Most Asked Questions - playful pill links */
+.most-popular-faqs ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-top: 12px;
+}
+.most-popular-faqs li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.most-popular-faqs a {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e8ffb8 60%, #f9fafc 100%);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 1em;
+  text-decoration: none;
+  box-shadow: 0 2px 8px 0 rgba(34,176,125,0.08);
+  border: 1.5px solid #e1e6ea;
+  transition: background 0.18s, box-shadow 0.18s, color 0.18s;
+}
+.most-popular-faqs a:hover, .most-popular-faqs a:focus {
+  background: linear-gradient(90deg, #f9fafc 60%, #e8ffb8 100%);
+  color: var(--accent);
+  box-shadow: 0 4px 16px 0 rgba(34,176,125,0.13);
+  outline: none;
 }
 
 /* Policy Page */
@@ -2064,10 +2072,9 @@ main {
     scroll-snap-type: x mandatory;
     gap: 12px !important;
   }
-  .seasonal-printable-row {
-    min-width: 220px;
-    max-width: 80vw;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+    .seasonal-printable-row {
+      min-width: 220px;
+      max-width: 80vw;
+    }
   }
-}
+    
