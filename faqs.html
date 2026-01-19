@@ -59,6 +59,7 @@
       <section class="section">
         <div class="section-header">
           <p class="eyebrow">Canva Templates</p>
+          <p class="lede">Everything you need to know about using and customizing your Canva templates.</p>
         </div>
         <div class="faqs-grid">
           <div class="faq-item">
@@ -116,6 +117,7 @@
       <section class="section">
         <div class="section-header">
           <p class="eyebrow">Custom Canva Designs</p>
+          <p class="lede">Details about personalized Canva templates created just for your brand.</p>
         </div>
         <div class="faqs-grid">
           <div class="faq-item">
@@ -173,6 +175,7 @@
       <section class="section">
         <div class="section-header">
           <p class="eyebrow">Brand Identity & Branding</p>
+          <p class="lede">Answers to your questions about branding packages, process, and deliverables.</p>
         </div>
         <div class="faqs-grid">
           <div class="faq-item">
@@ -210,6 +213,7 @@
       <section class="section">
         <div class="section-header">
           <p class="eyebrow">Printables</p>
+          <p class="lede">All about printable products, customization, and how to use your files.</p>
         </div>
         <div class="faqs-grid">
           <div class="faq-item">
@@ -247,6 +251,7 @@
       <section class="section">
         <div class="section-header">
           <p class="eyebrow">Shipped & Physical Products</p>
+          <p class="lede">Shipping, delivery, and what to expect with physical products from my studio.</p>
         </div>
         <div class="faqs-grid">
           <div class="faq-item">
@@ -276,7 +281,7 @@
 
           <div class="faq-item">
             <h3>What if my shipped item arrives damaged?</h3>
-            <p>If your item arrives damaged, contact me with photos and your order number. I'll work with you to replace or fix the issue at no cost.</p>
+            <p>If your item arrives damaged, just send me photos and your order number — I’ll take care of it right away and make sure you get a replacement or fix at no cost.</p>
           </div>
 
           <div class="faq-item">
@@ -289,6 +294,7 @@
       <section class="section">
         <div class="section-header">
           <p class="eyebrow">Custom Designs & Special Requests</p>
+          <p class="lede">How to request something unique, custom, or totally one-of-a-kind.</p>
         </div>
         <div class="faqs-grid">
           <div class="faq-item">
@@ -348,15 +354,38 @@
     </main>
 
       <script>
-              // FAQ live search filter
+              // FAQ live search filter (robust for accordion)
               document.addEventListener('DOMContentLoaded', () => {
                 const searchInput = document.getElementById('faq-search');
                 if (searchInput) {
                   searchInput.addEventListener('input', function() {
                     const query = this.value.toLowerCase();
                     document.querySelectorAll('.faq-item').forEach(item => {
-                      const text = item.textContent.toLowerCase();
-                      item.style.display = text.includes(query) ? '' : 'none';
+                      // Always search in the question and answer text
+                      const question = item.querySelector('h3')?.textContent?.toLowerCase() || '';
+                      const answer = item.querySelector('.faq-body')?.textContent?.toLowerCase() || '';
+                      const match = question.includes(query) || answer.includes(query);
+                      item.style.display = match ? '' : 'none';
+                      // If match, open the accordion; if not, close it
+                      if (match && query.length > 0) {
+                        item.classList.add('open');
+                        const body = item.querySelector('.faq-body');
+                        const chevron = item.querySelector('.chevron');
+                        if (body) {
+                          body.style.maxHeight = body.scrollHeight + 'px';
+                          body.style.opacity = '1';
+                        }
+                        if (chevron) chevron.textContent = '–';
+                      } else {
+                        item.classList.remove('open');
+                        const body = item.querySelector('.faq-body');
+                        const chevron = item.querySelector('.chevron');
+                        if (body) {
+                          body.style.maxHeight = '0px';
+                          body.style.opacity = '0';
+                        }
+                        if (chevron) chevron.textContent = '+';
+                      }
                     });
                   });
                 }
