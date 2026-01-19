@@ -90,7 +90,7 @@
           </div>
 
           <div class="faq-item" id="canva-access">
-            <h3><span style="font-size:1.1em;">🔗</span> How do I access my template after purchase?</h3>
+            <h3>How do I access my template after purchase?</h3>
             <p>Once you complete your purchase, you'll receive a PDF with a link to the Canva template. Click the link, log into your Canva account, and click "Use Template" to start editing.</p>
           </div>
 
@@ -100,7 +100,7 @@
           </div>
 
           <div class="faq-item" id="client-work">
-            <h3><span style="font-size:1.1em;">🤝</span> Can I use the templates for client projects?</h3>
+            <h3>Can I use the templates for client projects?</h3>
             <p>Yes—if you're a designer or VA, you can use the templates for client work. However, you cannot resell, redistribute, or share the templates in their original or editable form.</p>
           </div>
 
@@ -204,7 +204,7 @@
         <p class="lede" style="margin-left: 36px;">Answers to your questions about branding packages, process, and deliverables.</p>
         <div class="faqs-grid">
           <div class="faq-item" id="branding-package">
-            <h3><span style="font-size:1.1em;">📦</span> What's included in a branding package?</h3>
+            <h3>What's included in a branding package?</h3>
             <p>A complete brand identity typically includes: logo design, color palette, typography guidelines, logo files in multiple formats, brand guidelines document, and usage examples showing how to apply your brand across different mediums.</p>
           </div>
 
@@ -409,6 +409,18 @@
         document.addEventListener('DOMContentLoaded', () => {
           const items = document.querySelectorAll('.faq-item');
 
+          // Map of question text to emoji (add more as needed)
+          const iconMap = {
+            'How do I access my template after purchase?': '🔗',
+            'Can I use the templates for client projects?': '🤝',
+            "What's included in a branding package?": '📦',
+            'Canva Templates': '🎨',
+            'Brand Identity & Branding': '💼',
+            'Printables': '🖨️',
+            'Shipped & Physical Products': '📦',
+            'Custom Designs & Special Requests': '✨',
+          };
+
           items.forEach((item) => {
             const heading = item.querySelector('h3');
             if (!heading) return;
@@ -422,10 +434,18 @@
 
             // Build toggle button inside the heading
             const label = heading.textContent.trim();
+            // Pick icon if mapped, else blank
+            let icon = '';
+            if (iconMap[label]) {
+              icon = iconMap[label];
+            } else if (/how|what|can|do|are|will|which|does|is|where|when|why|who|may|should|could|would|must|shall/i.test(label)) {
+              // fallback: no icon for generic questions
+              icon = '';
+            }
             const button = document.createElement('button');
             button.type = 'button';
             button.className = 'faq-toggle';
-            button.innerHTML = `<span>${label}</span><span class="chevron">+</span>`;
+            button.innerHTML = `${icon ? `<span style="font-size:1.2em; margin-right:8px;">${icon}</span>` : ''}<span>${label}</span><span class="chevron">+</span>`;
             heading.textContent = '';
             heading.appendChild(button);
 
@@ -466,7 +486,7 @@
               const query = this.value.toLowerCase();
               document.querySelectorAll('.faq-item').forEach(item => {
                 // Search in the button label (question) and answer text
-                const question = item.querySelector('.faq-toggle span')?.textContent?.toLowerCase() || '';
+                const question = item.querySelector('.faq-toggle span:nth-child(2)')?.textContent?.toLowerCase() || '';
                 const answer = item.querySelector('.faq-body')?.textContent?.toLowerCase() || '';
                 const match = question.includes(query) || answer.includes(query);
                 item.style.display = match ? '' : 'none';
