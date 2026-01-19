@@ -93,8 +93,8 @@
           </div>
 
           <div class="faq-item">
-            <h3>Can I get a refund on my purchase?</h3>
-            <p>Due to the digital nature of the product, we do not offer refunds. If you encounter any issues, please contact us and we'll be happy to help.</p>
+            <h3>Can I get a refund or return my purchase?</h3>
+            <p>Due to the digital nature of the product, we do not offer refunds or returns. If you encounter any issues, please contact us and we'll be happy to help.</p>
           </div>
 
           <div class="faq-item">
@@ -353,43 +353,9 @@
       </section>
     </main>
 
+
       <script>
-              // FAQ live search filter (robust for accordion)
-              document.addEventListener('DOMContentLoaded', () => {
-                const searchInput = document.getElementById('faq-search');
-                if (searchInput) {
-                  searchInput.addEventListener('input', function() {
-                    const query = this.value.toLowerCase();
-                    document.querySelectorAll('.faq-item').forEach(item => {
-                      // Always search in the question and answer text
-                      const question = item.querySelector('h3')?.textContent?.toLowerCase() || '';
-                      const answer = item.querySelector('.faq-body')?.textContent?.toLowerCase() || '';
-                      const match = question.includes(query) || answer.includes(query);
-                      item.style.display = match ? '' : 'none';
-                      // If match, open the accordion; if not, close it
-                      if (match && query.length > 0) {
-                        item.classList.add('open');
-                        const body = item.querySelector('.faq-body');
-                        const chevron = item.querySelector('.chevron');
-                        if (body) {
-                          body.style.maxHeight = body.scrollHeight + 'px';
-                          body.style.opacity = '1';
-                        }
-                        if (chevron) chevron.textContent = '–';
-                      } else {
-                        item.classList.remove('open');
-                        const body = item.querySelector('.faq-body');
-                        const chevron = item.querySelector('.chevron');
-                        if (body) {
-                          body.style.maxHeight = '0px';
-                          body.style.opacity = '0';
-                        }
-                        if (chevron) chevron.textContent = '+';
-                      }
-                    });
-                  });
-                }
-              });
+        // Accordion initialization must run before search logic
         document.addEventListener('DOMContentLoaded', () => {
           const items = document.querySelectorAll('.faq-item');
 
@@ -442,6 +408,41 @@
               setOpen(willOpen);
             });
           });
+
+          // Now set up the search logic
+          const searchInput = document.getElementById('faq-search');
+          if (searchInput) {
+            searchInput.addEventListener('input', function() {
+              const query = this.value.toLowerCase();
+              document.querySelectorAll('.faq-item').forEach(item => {
+                // Search in the button label (question) and answer text
+                const question = item.querySelector('.faq-toggle span')?.textContent?.toLowerCase() || '';
+                const answer = item.querySelector('.faq-body')?.textContent?.toLowerCase() || '';
+                const match = question.includes(query) || answer.includes(query);
+                item.style.display = match ? '' : 'none';
+                // If match, open the accordion; if not, close it
+                if (match && query.length > 0) {
+                  item.classList.add('open');
+                  const body = item.querySelector('.faq-body');
+                  const chevron = item.querySelector('.chevron');
+                  if (body) {
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                    body.style.opacity = '1';
+                  }
+                  if (chevron) chevron.textContent = '–';
+                } else {
+                  item.classList.remove('open');
+                  const body = item.querySelector('.faq-body');
+                  const chevron = item.querySelector('.chevron');
+                  if (body) {
+                    body.style.maxHeight = '0px';
+                    body.style.opacity = '0';
+                  }
+                  if (chevron) chevron.textContent = '+';
+                }
+              });
+            });
+          }
         });
       </script>
 
