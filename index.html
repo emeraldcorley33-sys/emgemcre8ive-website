@@ -1044,24 +1044,29 @@
       // Create inner piece for wiggle and shape/color
       const piece = document.createElement("div");
 
-      // Always-on base confetti
-      const baseTypes = ["streamer", "dot", "sparkle"];
-      const baseColors = ["gold", "champagne", "rosegold"];
-
-      // Seasonal overlays
-      let seasonalTypes = [];
-      if (isValentineSeason()) seasonalTypes.push("heart");
-      if (isShamrockSeason()) seasonalTypes.push("shamrock");
-      if (isSpringPetalSeason()) seasonalTypes.push("petal");
-      if (isMayCelebrationSeason()) seasonalTypes.push("balloon");
-      if (isSummerSeason()) seasonalTypes.push("sun");
-      if (isFallSeason()) seasonalTypes.push("leaf");
-      if (isHolidaySeason()) seasonalTypes.push("snowflake");
-      const allTypes = [...baseTypes, ...seasonalTypes];
-      const type = allTypes[Math.floor(Math.random() * allTypes.length)];
-      piece.classList.add("confetti", type);
-      const color = baseColors[Math.floor(Math.random() * baseColors.length)];
-      piece.classList.add(color);
+      // March: Only green and gold shamrocks
+      if (isShamrockSeason()) {
+        piece.classList.add("confetti", "shamrock");
+        // 70% green, 30% gold
+        const color = Math.random() < 0.7 ? "shamrock-green" : "gold";
+        piece.classList.add(color);
+      } else {
+        // Default: base confetti and seasonal overlays
+        const baseTypes = ["streamer", "dot", "sparkle"];
+        const baseColors = ["gold", "champagne", "rosegold"];
+        let seasonalTypes = [];
+        if (isValentineSeason()) seasonalTypes.push("heart");
+        if (isSpringPetalSeason()) seasonalTypes.push("petal");
+        if (isMayCelebrationSeason()) seasonalTypes.push("balloon");
+        if (isSummerSeason()) seasonalTypes.push("sun");
+        if (isFallSeason()) seasonalTypes.push("leaf");
+        if (isHolidaySeason()) seasonalTypes.push("snowflake");
+        const allTypes = [...baseTypes, ...seasonalTypes];
+        const type = allTypes[Math.floor(Math.random() * allTypes.length)];
+        piece.classList.add("confetti", type);
+        const color = baseColors[Math.floor(Math.random() * baseColors.length)];
+        piece.classList.add(color);
+      }
 
       // Random placement + timing
       wrapper.style.left = Math.random() * 100 + "vw";
