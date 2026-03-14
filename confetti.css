@@ -100,8 +100,7 @@
   animation-duration: 7s, 3s;
 }
 .shamrock:before,
-.shamrock:after,
-.shamrock div {
+.shamrock:after {
   content: "";
   width: 10px;
   height: 10px;
@@ -111,7 +110,17 @@
 }
 .shamrock:before { top: -6px; left: 0; }
 .shamrock:after { left: -6px; top: 0; }
-.shamrock div { top: 4px; left: -3px; }
+.shamrock .shamrock-stem {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 10px;
+  background: linear-gradient(180deg, #1fa22e 60%, #bfae4a 100%);
+  left: 3px;
+  top: 7px;
+  border-radius: 2px;
+  transform: rotate(25deg);
+}
 
 /* 🌸 Petals (April) */
 .petal {
