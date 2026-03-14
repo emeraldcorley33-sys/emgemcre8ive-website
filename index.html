@@ -1050,6 +1050,10 @@
         // 70% green, 30% gold
         const color = Math.random() < 0.7 ? "shamrock-green" : "gold";
         piece.classList.add(color);
+        // Add stem for shamrock
+        const stem = document.createElement("div");
+        stem.className = "shamrock-stem";
+        piece.appendChild(stem);
       } else {
         // Default: base confetti and seasonal overlays
         const baseTypes = ["streamer", "dot", "sparkle"];
