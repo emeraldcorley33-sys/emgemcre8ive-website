@@ -1,3 +1,8 @@
+/* Shamrock green color for St. Patty's confetti */
+.shamrock-green {
+  background: linear-gradient(45deg, #1fa22e, #4be34b);
+  color: #1fa22e;
+}
 /* Confetti container */
 #confetti-container {
   position: fixed;
