@@ -423,6 +423,10 @@
         // 70% green, 30% gold
         const color = Math.random() < 0.7 ? "shamrock-green" : "gold";
         piece.classList.add(color);
+        // Add third leaf for shamrock
+        const leaf = document.createElement("div");
+        leaf.className = "shamrock-leaf";
+        piece.appendChild(leaf);
         // Add stem for shamrock
         const stem = document.createElement("div");
         stem.className = "shamrock-stem";
