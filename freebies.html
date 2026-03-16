@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R630L58GPP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R630L58GPP');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="/emgemcre8ive-logos-png/logo.png">
   <link rel="apple-touch-icon" href="/emgemcre8ive-logos-png/logo.png">
@@ -446,6 +454,52 @@
       setTimeout(() => wrapper.remove(), 10000);
     }
     setInterval(createConfettiPiece, 200);
+
+    // Google Analytics download tracking for printables
+    function trackDownload(event, label) {
+      if (window.gtag) {
+        gtag('event', 'download', {
+          'event_category': 'Printable',
+          'event_label': label
+        });
+      }
+    }
+
+    // Attach tracking to all printable download links
+    document.addEventListener('DOMContentLoaded', function() {
+      const downloadLinks = [
+        { selector: 'a[href*="St. Patty\'s Day Printables"]', label: "St. Patty's Day Printables" },
+        { selector: 'a[href*="Valentines Printables"]', label: "Valentines Printables" },
+        { selector: 'a[href*="New Years Printables"]', label: "New Years Printables" },
+        { selector: 'a[href*="Christmas Printables"]', label: "Christmas Printables" },
+        { selector: 'a[href*="Thanksgiving Printables"]', label: "Thanksgiving Printables" },
+        { selector: 'a[href*="Spring Printables"]', label: "Spring Printables" },
+        // Fallback for visible button text if href pattern changes
+        { selector: 'a.cta.primary[href*="st-patty"]', label: "St. Patty's Day Printables" },
+        { selector: 'a.cta.primary[href*="valentine"]', label: "Valentines Printables" },
+        { selector: 'a.cta.primary[href*="new-year"]', label: "New Years Printables" },
+        { selector: 'a.cta.primary[href*="christmas"]', label: "Christmas Printables" },
+        { selector: 'a.cta.primary[href*="thanksgiving"]', label: "Thanksgiving Printables" },
+        { selector: 'a.cta.primary[href*="spring"]', label: "Spring Printables" }
+      ];
+      downloadLinks.forEach(dl => {
+        document.querySelectorAll(dl.selector).forEach(link => {
+          link.addEventListener('click', function(e) {
+            trackDownload(e, dl.label);
+          });
+        });
+      });
+      // Generic fallback for all download links in printables section
+      document.querySelectorAll('.seasonal-printables-list a, .mockup-cta a').forEach(link => {
+        if (!link.hasAttribute('data-ga-download')) {
+          link.addEventListener('click', function(e) {
+            const label = link.textContent.trim() + ' - ' + (link.href || '');
+            trackDownload(e, label);
+          });
+          link.setAttribute('data-ga-download', '1');
+        }
+      });
+    });
   </script>
   <script>
     // Simple lightbox for mockup grids
